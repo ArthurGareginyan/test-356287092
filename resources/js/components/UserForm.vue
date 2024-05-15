@@ -1,19 +1,21 @@
 <template>
-<div>
     <h2>Create User</h2>
     <form @submit.prevent="submitForm">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" v-model="name" id="name">
-        </div>
-        <div>
-            <button type="submit">Create</button>
-        </div>
-        <div v-if="error" style="color: red;">
-            {{ error }}
-        </div>
-    </form>
-</div>
+    <div>
+        <h2>Create user</h2>
+        <form @submit.prevent="submitForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" v-model="name" id="name">
+            </div>
+            <div>
+                <button type="submit">Create</button>
+            </div>
+            <div v-if="error" style="color: red;">
+                {{ error }}
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -26,7 +28,7 @@ export default {
     },
     methods: {
         submitForm() {
-            axios.post('/api/users', {
+            axios.post('/users', {
                     name: this.name
                 })
                 .then(response => {

@@ -20,14 +20,17 @@ export default {
         this.fetchUsers();
     },
     methods: {
-        fetchUsers() {
-            axios.get('/api/users')
-                .then(response => {
-                    this.users = response.data;
-                })
-                .catch(error => {
-                    console.error(error);
-                });
+        async fetchUsers() {
+            try {
+                const response = await fetch('/users');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch users');
+                }
+                const data = await response.json();
+                this.users = data;
+            } catch (error) {
+                console.error('Error fetching users:', error.message);
+            }
         }
     }
 };
