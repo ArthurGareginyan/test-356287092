@@ -15,6 +15,12 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
+import UserList from './components/UserList.vue';
+import UserForm from './components/UserForm.vue';
+
+app.component('user-list', UserList);
+app.component('user-form', UserForm);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
