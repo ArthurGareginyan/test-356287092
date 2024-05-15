@@ -42,4 +42,20 @@ class UserController extends Controller
 
         return response()->json($usersWithSkills);
     }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'regex:/^\d{1,12}$|^[a-zA-Z]{1,12}$/'],
+        ]);
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->name . '@example.com',
+            'password' => Hash::make('password'),
+            'description' => 'Auto-generated user',
+        ]);
+
+        return response()->json($user, 201);
+    }
 }
