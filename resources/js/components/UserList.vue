@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h2>User List</h2>
+        <h2>User list</h2>
         <ul>
             <li v-for="user in users" :key="user.id">
-                {{ user.name }} ({{ user.email }}) - Skills: {{ user.skills.join(', ') }}
+                {{ user.name }} ({{ user.email }}) [{{ user.skills.join(', ') }}]
             </li>
         </ul>
     </div>

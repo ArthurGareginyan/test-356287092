@@ -1,6 +1,4 @@
 <template>
-    <h2>Create User</h2>
-    <form @submit.prevent="submitForm">
     <div>
         <h2>Create user</h2>
         <form @submit.prevent="submitForm">
